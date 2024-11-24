@@ -1,0 +1,42 @@
+@use 'variables' as v;
+
+.button {
+  background-color: v.$color1; /* Acceder a la variable usando el alias 'v' */
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 32px;
+
+
+  &__shadow{
+  width: 60px;
+  height: 60px;
+  background-color: v.$color2;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+
+  }
+
+  &__box {
+    
+    position: relative;
+  }
+
+  &__shadow {
+    width: 60px;
+    height: 60px;
+    background-color: v.$color2;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    z-index: -1;
+  }
+
+  &:active {
+    transform: translate(4px);
+  }
+}

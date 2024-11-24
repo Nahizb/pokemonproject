@@ -1,0 +1,151 @@
+@use 'variables' as v;
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap; /* Esto permite que las cartas se ajusten en diferentes líneas cuando sea necesario */
+  justify-content: space-evenly;
+  gap: 20px;
+  margin-top: 80px;
+  width: 100%; /* Asegura que el contenedor ocupe el 100% del ancho */
+  box-sizing: border-box; /* Para incluir el padding en el ancho total */
+}
+
+.card {
+  width: 250px;
+  height: 250px;
+  border-radius: 16px;
+  background-color: v.$color2;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  padding: 48px 12px 12px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+  /* Efecto de luz al pasar el mouse */
+  &:hover {
+    box-shadow: 0 0 20px 10px v.$color4;
+    transform: translateY(-5px);
+  }
+}
+
+.card__name {
+  background-color: v.$color1;
+  text-align: right;
+  color: v.$color6;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 8px 12px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.card__circle {
+  background-color: v.$color4;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  position: absolute;
+  top: 56px;
+  left: 50px;
+  z-index: 0;
+}
+
+.card__img {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  max-width: 150px;
+  max-height: 150px;
+  object-fit: contain;
+  object-position: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Media queries para hacer el diseño responsivo */
+
+/* Pantallas pequeñas: dispositivos móviles */
+@media (max-width: 600px) {
+  .card-container {
+    flex-direction: column; /* Apilar las cartas verticalmente */
+    align-items: center; /* Centrar las cartas */
+    justify-content: center;
+  }
+
+  .card {
+    width: 90%; /* Hacer que las cartas ocupen el 90% del ancho */
+    max-width: 300px;
+    margin-bottom: 20px; /* Espaciado entre las cartas */
+  }
+}
+/* Pantallas medianas: tabletas */
+/* Pantallas pequeñas: dispositivos móviles */
+@media (max-width: 600px) {
+  .card-container {
+    display: flex;
+    flex-direction: column; /* Apilar las cartas verticalmente */
+    align-items: center; /* Centrar las cartas */
+    justify-content: center; 
+    gap: 20px; /* Añadir espacio entre las cartas */
+    padding: 0 10px; /* Evitar que las cartas se peguen al borde */
+  }
+
+  .card {
+    width: 90%; /* Hacer que las cartas ocupen el 90% del ancho */
+    max-width: 300px;
+    margin-bottom: 20px; /* Espaciado entre las cartas */
+    transform: none; /* Eliminar rotación */
+  }
+
+  .buttons-container {
+    margin-top: 30px; /* Espaciado superior entre las cartas y los botones */
+    text-align: center; /* Centrar los botones */
+  }
+}
+
+/* Pantallas medianas: tabletas */
+@media (max-width: 1024px) {
+  .card-container {
+    display: flex;
+    justify-content: center; /* Centrar las cartas en pantallas medianas */
+    flex-wrap: wrap; /* Las cartas se pueden mover a una nueva línea si es necesario */
+    gap: 20px; /* Añadir espacio entre las cartas */
+    padding: 0 10px; /* Añadir padding en los laterales para evitar que las cartas se peguen al borde */
+  }
+
+  .card {
+    width: 200%; /* Las cartas ocupan el 45% del contenedor */
+    max-width: 250px;
+    margin-bottom: 20px; /* Espaciado entre las cartas */
+    margin-left: auto; /* Centrar las cartas */
+    margin-right: auto; /* Centrar las cartas */
+    transform: none; /* Eliminar rotación */
+  }
+
+  .buttons-container {
+    margin-top: 30px; /* Espaciado superior entre las cartas y los botones */
+    text-align: center; /* Centrar los botones */
+  }
+}
+
+/* Pantallas grandes: escritorios */
+@media (min-width: 1025px) {
+  .card-container {
+    display: flex;
+    justify-content: center; /* Centrar las cartas en pantallas grandes */
+    gap: 20px; /* Añadir espacio entre las cartas */
+  }
+
+  .card {
+    width: 250px; /* Ancho fijo para las cartas */
+    max-width: 250px;
+  }
+
+  .buttons-container {
+    margin-top: 30px; /* Asegura que los botones siempre tengan algo de espacio desde las cartas */
+  }
+}
